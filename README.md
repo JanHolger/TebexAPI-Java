@@ -17,7 +17,8 @@ TebexQueue queue = new TebexQueue(api, new TebexListener(){
         return false;
     }
 });
-queue.setOfflineInterval(30000); // OPTIONAL (DEFAULT 30000), INTERVAL IN WHICH TO CHECK OFFLINE COMMANDS
+queue.setOfflineInterval(30000); // OPTIONAL (DEFAULT: 30000), INTERVAL IN WHICH TO CHECK OFFLINE COMMANDS
+queue.setOnlineEnabled(true); // OPTIONAL (DEFAULT: false), WHETHER TO SUPPORT ONLINE COMMANDS
 new Thread(queue, "Tebex").start();
 ```
 

@@ -16,6 +16,7 @@ public class TebexQueue implements Runnable {
     private long onlineInterval = 90000;
     private long nextOffline = 0;
     private long nextOnline = 0;
+    private boolean onlineEnabled = false;
 
     public TebexQueue(TebexAPI tebexAPI, TebexListener listener){
         this.tebexAPI = tebexAPI;
@@ -24,6 +25,10 @@ public class TebexQueue implements Runnable {
 
     public void setOfflineInterval(long offlineInterval){
         this.offlineInterval = offlineInterval;
+    }
+
+    public void setOnlineEnabled(boolean onlineEnabled){
+        this.onlineEnabled = onlineEnabled;
     }
 
     public void run(){
@@ -46,7 +51,7 @@ public class TebexQueue implements Runnable {
                 }
                 nextOffline = now + offlineInterval;
             }
-            if(nextOnline < now){
+            if(onlineEnabled && nextOnline < now){
                 try {
                     List<TebexCommand> deletable = new ArrayList<>();
                     for(TebexPlayer player : tebexAPI.getQueue()){
