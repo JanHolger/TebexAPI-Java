@@ -36,6 +36,6 @@ Dependency:
 <dependency>
     <groupId>com.github.JanHolger</groupId>
     <artifactId>TebexAPI-Java</artifactId>
-    <version>master</version>
+    <version>d694ce2cc8</version>
 </dependency>
 ```
