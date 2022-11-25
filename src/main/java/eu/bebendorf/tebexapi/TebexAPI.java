@@ -83,6 +83,18 @@ public class TebexAPI {
 		return http("GET", "/user/" + player, null).getBodyOrError(TebexPlayerLookup.class);
 	}
 
+	public TebexPackage[] getPackages() throws TebexException {
+		return http("GET", "/packages", null).getBodyOrError(TebexPackage[].class);
+	}
+
+	public TebexPackage getPackage(String id) throws TebexException {
+		return http("GET", "/package/"+id, null).getBodyOrError(TebexPackage.class);
+	}
+
+	public TebexPurchase[] getPurchases(String player, String pkg) throws TebexException {
+		return http("GET", "/player/"+player+"/packages?="+pkg, null).getBodyOrError(TebexPurchase[].class);
+	}
+
 	public TebexPlayer[] getQueue() throws TebexException {
 		if (System.currentTimeMillis() < nextQueueCheck)
 			return lastQueueCheck;
