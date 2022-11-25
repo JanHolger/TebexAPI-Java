@@ -1,11 +1,11 @@
 package eu.bebendorf.tebexapi.model;
 
-import com.google.gson.JsonObject;
+import com.google.gson.JsonElement;
 
 public class TebexPlayerLookup {
-    public TebexPlayerInfo player;
-    public int banCount;
-    public int chargebackRate;
-    public TebexPayment[] payments;
-    private JsonObject purchaseTotals;
+	public  TebexPlayerInfo player;
+	public  int             banCount;
+	public  int             chargebackRate;
+	public  TebexPayment[]  payments;
+	private JsonElement     purchaseTotals;
 }
